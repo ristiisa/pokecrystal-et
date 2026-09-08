@@ -1,0 +1,6 @@
+# Python deps for the Estonian translation tooling (mark.py, check-line-length.py, spellcheck.py).
+# Install into a project venv (Homebrew Python is PEP 668 externally-managed):
+#   python3 -m venv tools/.venv && tools/.venv/bin/pip install -r tools/requirements.txt
+pyphen        # Estonian hyphenation for word-wrapping (mark.py)
+phunspell     # et_EE Hunspell dictionary for spellcheck.py
+termcolor     # coloured spellcheck output

@@ -37,3 +37,8 @@ gfx/pokemon/*/frames.asm
 *.sn*
 *.sa*
 *.sg1
+
+# Estonian translation tooling (Python)
+tools/.venv/
+__pycache__/
+*.pyc
