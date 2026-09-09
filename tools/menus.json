@@ -1,0 +1,125 @@
+{
+ "_comment": "Menu / UI db-strings that are NOT text-macro dialogue (so not in et.json). writeback.py applies these as literal db-string replacements per file, regenerating them into the .asm from this committed source. '*' entries are replaced in every engine/**/*.asm and data/**/*.asm. Keys/values are the exact quoted db content incl. the trailing @/<LF> and tokens (<PK><MN>=POKéMON). Value strings keep the original on-screen width where a field is fixed (padded with spaces) so switching a setting clears leftover tiles.",
+ "*": {
+  "CANCEL@": "TÜHISTA@"
+ },
+ "engine/menus/main_menu.asm": {
+  "CONTINUE@": "JÄTKA@",
+  "NEW GAME@": "UUS MÄNG@",
+  "OPTION@": "VALIKUD@"
+ },
+ "engine/menus/start_menu.asm": {
+  "SAVE@": "SALVESTA@",
+  "OPTION@": "VALIKUD@",
+  "EXIT@": "VÄLJU@",
+  "QUIT@": "LÕPETA@"
+ },
+ "engine/menus/options_menu.asm": {
+  "TEXT SPEED<LF>": "TEKSTIKIIRUS<LF>",
+  "BATTLE SCENE<LF>": "LAHINGUPILT<LF>",
+  "BATTLE STYLE<LF>": "LAHINGUSTIIL<LF>",
+  "SOUND<LF>": "HELI<LF>",
+  "MENU ACCOUNT<LF>": "MENÜÜ MÄLU<LF>",
+  "FRAME<LF>": "RAAM<LF>",
+  "        :TYPE<LF>": "        :TÜÜP<LF>",
+  "FAST@": "KIIRE  @",
+  "MID @": "KESK   @",
+  "SLOW@": "AEGLANE@",
+  "ON @": "SEES  @",
+  "OFF@": "VÄLJAS@",
+  "SHIFT@": "VAHETUS@",
+  "SET  @": "PÜSIV  @",
+  "LIGHTEST@": "HELEDAIM@",
+  "LIGHTER @": "HELEDAM @",
+  "NORMAL  @": "TAVALINE@",
+  "DARKER  @": "TUMEDAM @",
+  "DARKEST @": "TUMEDAIM@"
+ },
+ "engine/menus/init_gender.asm": {
+  "Boy@": "Poiss@",
+  "Girl@": "Tüdruk@"
+ },
+ "engine/menus/menu_2.asm": {
+  "BALLS:@": "BALLID:@"
+ },
+ "engine/menus/delete_save.asm": {
+  "NO@": "EI@",
+  "YES@": "JAH@"
+ },
+ "engine/rtc/reset_password.asm": {
+  "NO@": "EI@",
+  "YES@": "JAH@"
+ },
+ "engine/battle/menu.asm": {
+  "FIGHT@": "VÕITLE@",
+  "RUN@": "PÕGENE@"
+ },
+ "engine/items/pack.asm": {
+  "USE@": "KASUTA@",
+  "QUIT@": "LÕPETA@",
+  "GIVE@": "ANNA@",
+  "TOSS@": "VISKA@"
+ },
+ "data/items/pocket_names.asm": {
+  "ITEM POCKET@": "ESEMETASKU@",
+  "KEY POCKET@": "VÕTMETASKU@",
+  "BALL POCKET@": "BALLITASKU@",
+  "TM POCKET@": "TM-TASKU@"
+ },
+ "engine/pokemon/mon_submenu.asm": {
+  "SWITCH@": "VAHETA@",
+  "STATS@": "NÄITAJAD@"
+ },
+ "engine/pokemon/mon_menu.asm": {
+  "GIVE@": "ANNA@",
+  "TAKE@": "VÕTA@",
+  "QUIT@": "LÕPETA@"
+ },
+ "engine/pokemon/party_menu.asm": {
+  "Use on which <PK><MN>?@": "Millisel <PK><MN>?@",
+  "Move to where?@": "Kuhu liigutada?@"
+ },
+ "engine/pokemon/bills_pc.asm": {
+  "DEPOSIT@": "HOIUSTA@",
+  "WITHDRAW@": "VÕTA VÄLJA@",
+  "STATS@": "NÄITAJAD@",
+  "MOVE@": "LIIGUTA@",
+  "SWITCH@": "VAHETA@",
+  "NAME@": "NIMI@",
+  "PRINT@": "PRINDI@",
+  "QUIT@": "LÕPETA@",
+  "Move to where?@": "Kuhu liigutada?@"
+ },
+ "engine/pokemon/bills_pc_top.asm": {
+  "WITHDRAW <PK><MN>@": "VÕTA VÄLJA <PK><MN>@",
+  "DEPOSIT <PK><MN>@": "HOIUSTA <PK><MN>@",
+  "CHANGE BOX@": "VAHETA BOX@",
+  "MOVE <PK><MN> W/O MAIL@": "LIIGUTA <PK><MN> ILMA MAILITA@",
+  "SEE YA!@": "NÄEME!@"
+ },
+ "engine/pokemon/stats_screen.asm": {
+  "EXP POINTS@": "EXP-PUNKTID@"
+ },
+ "engine/pokemon/mail.asm": {
+  "ATTACH MAIL@": "LISA MAIL@",
+  "READ MAIL@": "LOE MAIL@",
+  "PUT IN PACK@": "PANE PACKI@",
+  "Remove MAIL.@": "Eemalda MAIL.@"
+ },
+ "engine/overworld/decorations.asm": {
+  "EXIT@": "VÄLJU@"
+ },
+ "engine/link/link.asm": {
+  "STATS     TRADE@": "NÄITAJAD VAHETA@"
+ },
+ "home/menu.asm": {
+  "YES@": "JAH@",
+  "NO@": "EI@"
+ },
+ "engine/rtc/timeset.asm": {
+  "MORN@": "HOMM@",
+  "DAY@": "PÄEV@",
+  "NITE@": "ÖÖ@",
+  "o'clock@": "kell@"
+ }
+}

@@ -28,6 +28,47 @@ baseline commit (the pristine English tree) and use `--remaining <ref>` as the
 robust "what's left" meter. All-caps names (pokémon/move/item/type) stay
 English by convention and show up as `trivial`.
 
+### 1b. draft — machine-translate the worksheet (optional first pass)
+
+Extract the English into a worksheet, then draft Estonian for it:
+
+```bash
+tools/.venv/bin/python tools/pc_extract.py tools/   # -> tools/et_untranslated.json (et="")
+make -C tools translate                             # -> tools/et_draft.json
+make -C tools translate ARGS="--limit 50"           # small trial run
+```
+
+`translate.py` fills each row's `et`: exact matches from the pokered memory
+(`pocketred_et_memory.json`, human-reviewed) win, everything else is drafted by
+the TartuNLP NMT API (https://api.tartunlp.ai). Each row carries an `et_src`
+(`memory` / `mt`) so you know what to trust; rows whose game tokens
+(`<PLAYER>`, `#MON`, `{RAM}`) changed in translation are flagged `check`. Unique
+strings are translated once, and the run is resumable (rerun to continue; edited
+rows are kept). Set `TARTUNLP_API_KEY` for higher rate limits.
+
+The NMT output is a **draft** — e.g. it rendered "groom" as "peigmeheks"
+(bridegroom) — so review every `mt` row before seeding it.
+
+**Glossary** (`tools/glossary.json`): before each NMT call, game terms are
+masked and restored so the model can't mangle them — lowercase type words get
+their Estonian root (`bug #MON` → `putuk #MON`), proper nouns are protected
+(kept English: `MAY:` stays `MAY:`), and caps overrides map to the pokered
+Estonian (`TOWN MAP` → `LINNA KAART`). Extend it as terminology decisions are
+made. Re-run the machine rows through an updated glossary with:
+
+```bash
+make -C tools translate ARGS="tools/et_draft.json --out tools/et_draft.json --redo-mt"
+```
+
+`--redo-mt` re-translates only `et_src:"mt"` rows (memory and hand-edited `pe`
+rows are kept) and stashes the previous machine output in `mt_raw`.
+
+### 1c. post-edit — correct the draft (Claude / human)
+
+The glossary fixes terminology, not idiom or word-sense. A reviewer (or Claude)
+corrects the drafted `et`, sets `et_src:"pe"`, and the row is then trusted and
+kept across re-runs. This is the bulk of the quality work; NMT is scaffolding.
+
 ### 2. seed — write Estonian as `;;` lines
 
 Above an English text block, write the translation, **one `;;` line per

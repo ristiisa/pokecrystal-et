@@ -1,4 +1,4 @@
-.PHONY: all clean venv discover mark check spell
+.PHONY: all clean venv discover mark check spell translate
 
 CC := gcc
 CFLAGS := -O3 -std=c17 -Wall -Wextra -pedantic
@@ -40,6 +40,9 @@ venv: .venv/pyvenv.cfg
 # recipes run from the repo root so path args (maps, data/text, …) resolve there
 discover: venv
 	cd .. && tools/$(PY) tools/discover.py $(ARGS)
+
+translate: venv
+	cd .. && tools/$(PY) tools/translate.py $(ARGS)
 
 mark: venv
 	cd .. && tools/$(PY) tools/mark.py $(FILE)
